@@ -19,29 +19,21 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ToDoListTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                Main()
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    ToDoListTheme {
-        Greeting("Android")
+fun Main() {
+    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+        TaskList(modifier = Modifier.padding(innerPadding))
     }
+}
+
+@Composable
+fun TaskList(modifier: Modifier = Modifier) {
+
 }
